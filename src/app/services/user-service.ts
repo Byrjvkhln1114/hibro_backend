@@ -1,22 +1,22 @@
 import { GraphQLError } from "graphql";
 import { prisma } from "@/utils/prisma";
 export type User = {
-  id: string;
-  friends: string[];
-  image: string;
-  username: string;
+  id: String;
+  friends: String[];
+  image: String;
+  username: String;
 };
 export type UserCreateInput = {
-  id: string;
-  friends: string[];
-  image: string;
-  username: string;
+  id: String;
+  friends: String[];
+  image: String;
+  username: String;
 };
 export type UserUpdateInput = {
-  id: string;
-  friends: string[];
-  image: string;
-  username: string;
+  id: String;
+  friends: String[];
+  image: String;
+  username: String;
 };
 export const userList: User[] = [
   {
@@ -36,7 +36,7 @@ export const getUserList = async () => {
     throw new GraphQLError("Error on getUserList");
   }
 };
-export const getUserById = async (id: string) => {
+export const getUserById = async (id: String) => {
   try {
     const result = await prisma.user.findUnique({ where: { id } });
     return result;
@@ -64,7 +64,7 @@ export const updateUser = (input: UserUpdateInput): User | undefined => {
   user.username = input.username;
   return user;
 };
-export const deleteUser = (id: string): User | undefined => {
+export const deleteUser = (id: String): User | undefined => {
   const index = userList.findIndex((user) => user.id === id);
   if (index === -1) throw new GraphQLError("User not found");
   return userList.splice(index, 1)[0];
