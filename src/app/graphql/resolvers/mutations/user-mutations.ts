@@ -12,5 +12,5 @@ export const userMutations = {
     createUser(input),
   updateUser: (_: unknown, { input }: { input: UserUpdateInput }) =>
     updateUser(input),
-  deleteUser: (_: unknown, { id }: { id: string }) => deleteUser(id),
+  deleteUser: (_: unknown, { id }: { id: String }) => deleteUser(id),
 };
