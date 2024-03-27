@@ -1,30 +1,30 @@
 import { gql } from "graphql-tag";
 export const UserTypeDefs = gql`
   type User {
-    id: string!
-    friends: [string]!
-    image: string
-    username: string
+    id: String!
+    friends: [String]!
+    image: String
+    username: String
   }
   input UserCreateInput {
-    id: string!
-    friends: [string]!
-    image: string
-    username: string
+    id: String!
+    friends: [String]!
+    image: String
+    username: String
   }
   input UserUpdateInput {
-    id: string!
-    friends: [string]!
-    image: string
-    username: string
+    id: String!
+    friends: [String]!
+    image: String
+    username: String
   }
   type Query {
     getUserList: [User]
-    getUser(id: string): User
+    getUser(id: String): User
   }
   type Mutation {
     createUser(input: UserCreateInput!): User
     updateUser(input: UserUpdateInput!): User
-    deleteUser(id: string!): User
+    deleteUser(id: String!): User
   }
 `;
