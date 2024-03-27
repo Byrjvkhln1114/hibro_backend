@@ -30,6 +30,7 @@ export const userList: User[] = [
 export const getUserList = async () => {
   try {
     const result = await prisma.user.findMany();
+    console.log(result);
     return result;
   } catch (error) {
     console.error(error);
