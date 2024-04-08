@@ -24,6 +24,8 @@ export const getPostList = async () => {
 };
 export const createPost = async (input: any) => {
   try {
+    console.log(input);
+
     const result = await prisma.post.create({ data: input });
     return result;
   } catch (error) {

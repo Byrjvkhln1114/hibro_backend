@@ -17,12 +17,6 @@ export type Scalars = {
   Float: { input: number; output: number; }
 };
 
-export type Location = {
-  __typename?: 'Location';
-  latitude?: Maybe<Scalars['String']['output']>;
-  longitude?: Maybe<Scalars['String']['output']>;
-};
-
 export type Mutation = {
   __typename?: 'Mutation';
   createPost?: Maybe<Post>;
@@ -55,14 +49,14 @@ export type Post = {
   __typename?: 'Post';
   id?: Maybe<Scalars['String']['output']>;
   image?: Maybe<Scalars['String']['output']>;
-  location?: Maybe<Location>;
+  location?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   uid?: Maybe<Scalars['String']['output']>;
 };
 
 export type PostCreateInput = {
   id: Scalars['String']['input'];
   image?: InputMaybe<Scalars['String']['input']>;
-  location?: InputMaybe<Location>;
+  location?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   uid?: InputMaybe<Scalars['String']['input']>;
 };
 
@@ -172,7 +166,6 @@ export type DirectiveResolverFn<TResult = {}, TParent = {}, TContext = {}, TArgs
 /** Mapping between all available schema types and the resolvers types */
 export type ResolversTypes = {
   Boolean: ResolverTypeWrapper<Scalars['Boolean']['output']>;
-  Location: ResolverTypeWrapper<Location>;
   Mutation: ResolverTypeWrapper<{}>;
   Post: ResolverTypeWrapper<Post>;
   PostCreateInput: PostCreateInput;
@@ -186,7 +179,6 @@ export type ResolversTypes = {
 /** Mapping between all available schema types and the resolvers parents */
 export type ResolversParentTypes = {
   Boolean: Scalars['Boolean']['output'];
-  Location: Location;
   Mutation: {};
   Post: Post;
   PostCreateInput: PostCreateInput;
@@ -195,12 +187,6 @@ export type ResolversParentTypes = {
   User: User;
   UserCreateInput: UserCreateInput;
   UserUpdateInput: UserUpdateInput;
-};
-
-export type LocationResolvers<ContextType = any, ParentType extends ResolversParentTypes['Location'] = ResolversParentTypes['Location']> = {
-  latitude?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  longitude?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
 export type MutationResolvers<ContextType = any, ParentType extends ResolversParentTypes['Mutation'] = ResolversParentTypes['Mutation']> = {
@@ -213,7 +199,7 @@ export type MutationResolvers<ContextType = any, ParentType extends ResolversPar
 export type PostResolvers<ContextType = any, ParentType extends ResolversParentTypes['Post'] = ResolversParentTypes['Post']> = {
   id?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   image?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  location?: Resolver<Maybe<ResolversTypes['Location']>, ParentType, ContextType>;
+  location?: Resolver<Maybe<Array<Maybe<ResolversTypes['String']>>>, ParentType, ContextType>;
   uid?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
@@ -233,7 +219,6 @@ export type UserResolvers<ContextType = any, ParentType extends ResolversParentT
 };
 
 export type Resolvers<ContextType = any> = {
-  Location?: LocationResolvers<ContextType>;
   Mutation?: MutationResolvers<ContextType>;
   Post?: PostResolvers<ContextType>;
   Query?: QueryResolvers<ContextType>;
