@@ -1,2 +1,3 @@
 import { userQueries } from "./user-query";
-export const Query = { ...userQueries };
+import { postQuery } from "./post-query";
+export const Query = { ...userQueries, ...postQuery };
