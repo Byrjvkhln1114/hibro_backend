@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "postinstall": "prisma generate",
-    "codegen": "bunx graphql-code-generator --config ./codegen.ts"
+  "codegen": "bunx graphql-code-generator --config ./codegen.ts"
   },
   "dependencies": {
     "@apollo/client": "^3.9.9",
