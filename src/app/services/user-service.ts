@@ -51,7 +51,7 @@ export const changeImage = async (input: changeImageInput) => {
 
     const user = await prisma.user.findUnique({
       where: {
-        id: `user_2eoMvzVpTpXmTSIbp94SIaRnahB`,
+        id: `${input.id}`,
       },
     });
     //@ts-ignore
