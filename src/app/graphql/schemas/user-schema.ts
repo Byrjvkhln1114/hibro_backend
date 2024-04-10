@@ -12,11 +12,9 @@ export const UserTypeDefs = gql`
     image: String
     username: String
   }
-  input UserUpdateInput {
+  input changeImageInput {
     id: String!
-    friends: [String]!
     image: String
-    username: String
   }
   type Query {
     getUserList: [User]
@@ -24,7 +22,7 @@ export const UserTypeDefs = gql`
   }
   type Mutation {
     createUser(input: UserCreateInput!): User
-    updateUser(input: UserUpdateInput!): User
+    changeImage(input: changeImageInput!): User
     deleteUser(id: String!): User
   }
 `;

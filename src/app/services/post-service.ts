@@ -15,6 +15,13 @@ export type PostCreateInput = {
   location: [String];
   username: String;
 };
+export type PostUpdateInput = {
+  id: String;
+  image: String;
+  uid: String;
+  location: [String];
+  username: String;
+};
 export const getPostList = async () => {
   try {
     const result = await prisma.post.findMany();

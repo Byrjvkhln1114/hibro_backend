@@ -42,7 +42,7 @@ export type MutationDeleteUserArgs = {
 
 
 export type MutationUpdateUserArgs = {
-  input: UserUpdateInput;
+  input: ChangeImageInput;
 };
 
 export type Post = {
@@ -89,11 +89,9 @@ export type UserCreateInput = {
   username?: InputMaybe<Scalars['String']['input']>;
 };
 
-export type UserUpdateInput = {
-  friends: Array<InputMaybe<Scalars['String']['input']>>;
+export type ChangeImageInput = {
   id: Scalars['String']['input'];
   image?: InputMaybe<Scalars['String']['input']>;
-  username?: InputMaybe<Scalars['String']['input']>;
 };
 
 
@@ -175,7 +173,7 @@ export type ResolversTypes = {
   String: ResolverTypeWrapper<Scalars['String']['output']>;
   User: ResolverTypeWrapper<User>;
   UserCreateInput: UserCreateInput;
-  UserUpdateInput: UserUpdateInput;
+  changeImageInput: ChangeImageInput;
 };
 
 /** Mapping between all available schema types and the resolvers parents */
@@ -188,7 +186,7 @@ export type ResolversParentTypes = {
   String: Scalars['String']['output'];
   User: User;
   UserCreateInput: UserCreateInput;
-  UserUpdateInput: UserUpdateInput;
+  changeImageInput: ChangeImageInput;
 };
 
 export type MutationResolvers<ContextType = any, ParentType extends ResolversParentTypes['Mutation'] = ResolversParentTypes['Mutation']> = {

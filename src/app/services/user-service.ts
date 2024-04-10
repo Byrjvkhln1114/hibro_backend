@@ -12,11 +12,9 @@ export type UserCreateInput = {
   image: String;
   username: String;
 };
-export type UserUpdateInput = {
+export type changeImageInput = {
   id: String;
-  friends: String[];
   image: String;
-  username: String;
 };
 
 export const getUserList = async () => {
@@ -45,5 +43,22 @@ export const createUser = async (input: any) => {
   } catch (error) {
     console.error(error);
     throw new GraphQLError("Error on createUser");
+  }
+};
+export const changeImage = async (input: changeImageInput) => {
+  try {
+    console.log(input.id);
+
+    const user = await prisma.user.findUnique({
+      where: {
+        id: `user_2eoMvzVpTpXmTSIbp94SIaRnahB`,
+      },
+    });
+    //@ts-ignore
+    user.image = input.image;
+    return user;
+  } catch (error) {
+    console.error(error);
+    throw new GraphQLError("Error on changeImage");
   }
 };
