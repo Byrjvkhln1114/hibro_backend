@@ -25,4 +25,5 @@ model Post {
   image    String
   uid      String
   location String[]
+  username String
 }

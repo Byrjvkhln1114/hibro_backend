@@ -6,12 +6,14 @@ export type Post = {
   image: String;
   uid: String;
   location: [String];
+  username: String;
 };
 export type PostCreateInput = {
   id: String;
   image: String;
   uid: String;
   location: [String];
+  username: String;
 };
 export const getPostList = async () => {
   try {

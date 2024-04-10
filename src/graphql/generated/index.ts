@@ -51,6 +51,7 @@ export type Post = {
   image?: Maybe<Scalars['String']['output']>;
   location?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   uid?: Maybe<Scalars['String']['output']>;
+  username?: Maybe<Scalars['String']['output']>;
 };
 
 export type PostCreateInput = {
@@ -58,6 +59,7 @@ export type PostCreateInput = {
   image?: InputMaybe<Scalars['String']['input']>;
   location?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   uid?: InputMaybe<Scalars['String']['input']>;
+  username?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type Query = {
@@ -201,6 +203,7 @@ export type PostResolvers<ContextType = any, ParentType extends ResolversParentT
   image?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   location?: Resolver<Maybe<Array<Maybe<ResolversTypes['String']>>>, ParentType, ContextType>;
   uid?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  username?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 

@@ -5,12 +5,14 @@ export const PostTypeDefs = gql`
     image: String
     uid: String
     location: [String]
+    username: String
   }
   input PostCreateInput {
     id: String!
     image: String
     uid: String
     location: [String]
+    username: String
   }
 
   type Mutation {
