@@ -44,3 +44,15 @@ export const createPost = async (input: any) => {
     throw new GraphQLError("Error on createPost");
   }
 };
+
+export const getPostByUid = async (uid: string) => {
+  try {
+    const result = await prisma.post.findMany({ where: { uid } });
+    console.log(result);
+
+    return result;
+  } catch (error) {
+    console.error(error);
+    throw new GraphQLError("Error on getUserById");
+  }
+};

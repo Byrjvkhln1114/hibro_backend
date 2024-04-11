@@ -66,9 +66,15 @@ export type PostCreateInput = {
 
 export type Query = {
   __typename?: 'Query';
+  getPost?: Maybe<Post>;
   getPostList?: Maybe<Array<Maybe<Post>>>;
   getUser?: Maybe<User>;
   getUserList?: Maybe<Array<Maybe<User>>>;
+};
+
+
+export type QueryGetPostArgs = {
+  uid?: InputMaybe<Scalars['String']['input']>;
 };
 
 
@@ -209,6 +215,7 @@ export type PostResolvers<ContextType = any, ParentType extends ResolversParentT
 };
 
 export type QueryResolvers<ContextType = any, ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']> = {
+  getPost?: Resolver<Maybe<ResolversTypes['Post']>, ParentType, ContextType, Partial<QueryGetPostArgs>>;
   getPostList?: Resolver<Maybe<Array<Maybe<ResolversTypes['Post']>>>, ParentType, ContextType>;
   getUser?: Resolver<Maybe<ResolversTypes['User']>, ParentType, ContextType, Partial<QueryGetUserArgs>>;
   getUserList?: Resolver<Maybe<Array<Maybe<ResolversTypes['User']>>>, ParentType, ContextType>;

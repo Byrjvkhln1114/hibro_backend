@@ -22,5 +22,6 @@ export const PostTypeDefs = gql`
   }
   type Query {
     getPostList: [Post]
+    getPost(uid: String): [Post]
   }
 `;
