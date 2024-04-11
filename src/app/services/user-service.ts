@@ -49,13 +49,14 @@ export const changeImage = async (input: changeImageInput) => {
   try {
     console.log(input.id);
 
-    const user = await prisma.user.findUnique({
+    const user = await prisma.user.update({
       where: {
         id: `${input.id}`,
       },
+      data: {
+        image: `${input.image}`,
+      },
     });
-    //@ts-ignore
-    user.image = input.image;
     return user;
   } catch (error) {
     console.error(error);
