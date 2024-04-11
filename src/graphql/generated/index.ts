@@ -19,10 +19,15 @@ export type Scalars = {
 
 export type Mutation = {
   __typename?: 'Mutation';
+  changeImage?: Maybe<User>;
   createPost?: Maybe<Post>;
   createUser?: Maybe<User>;
   deleteUser?: Maybe<User>;
-  updateUser?: Maybe<User>;
+};
+
+
+export type MutationChangeImageArgs = {
+  input: ChangeImageInput;
 };
 
 
@@ -40,17 +45,13 @@ export type MutationDeleteUserArgs = {
   id: Scalars['String']['input'];
 };
 
-
-export type MutationUpdateUserArgs = {
-  input: ChangeImageInput;
-};
-
 export type Post = {
   __typename?: 'Post';
   id?: Maybe<Scalars['String']['output']>;
   image?: Maybe<Scalars['String']['output']>;
   location?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   uid?: Maybe<Scalars['String']['output']>;
+  userimage?: Maybe<Scalars['String']['output']>;
   username?: Maybe<Scalars['String']['output']>;
 };
 
@@ -59,6 +60,7 @@ export type PostCreateInput = {
   image?: InputMaybe<Scalars['String']['input']>;
   location?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   uid?: InputMaybe<Scalars['String']['input']>;
+  userimage?: InputMaybe<Scalars['String']['input']>;
   username?: InputMaybe<Scalars['String']['input']>;
 };
 
@@ -190,10 +192,10 @@ export type ResolversParentTypes = {
 };
 
 export type MutationResolvers<ContextType = any, ParentType extends ResolversParentTypes['Mutation'] = ResolversParentTypes['Mutation']> = {
+  changeImage?: Resolver<Maybe<ResolversTypes['User']>, ParentType, ContextType, RequireFields<MutationChangeImageArgs, 'input'>>;
   createPost?: Resolver<Maybe<ResolversTypes['Post']>, ParentType, ContextType, RequireFields<MutationCreatePostArgs, 'input'>>;
   createUser?: Resolver<Maybe<ResolversTypes['User']>, ParentType, ContextType, RequireFields<MutationCreateUserArgs, 'input'>>;
   deleteUser?: Resolver<Maybe<ResolversTypes['User']>, ParentType, ContextType, RequireFields<MutationDeleteUserArgs, 'id'>>;
-  updateUser?: Resolver<Maybe<ResolversTypes['User']>, ParentType, ContextType, RequireFields<MutationUpdateUserArgs, 'input'>>;
 };
 
 export type PostResolvers<ContextType = any, ParentType extends ResolversParentTypes['Post'] = ResolversParentTypes['Post']> = {
@@ -201,6 +203,7 @@ export type PostResolvers<ContextType = any, ParentType extends ResolversParentT
   image?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   location?: Resolver<Maybe<Array<Maybe<ResolversTypes['String']>>>, ParentType, ContextType>;
   uid?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  userimage?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   username?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
