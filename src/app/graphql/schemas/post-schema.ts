@@ -1,4 +1,5 @@
 import { gql } from "graphql-tag";
+
 export const PostTypeDefs = gql`
   type Post {
     id: String

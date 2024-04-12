@@ -28,6 +28,7 @@ export type PostUpdateInput = {
 export const getPostList = async () => {
   try {
     const result = await prisma.post.findMany();
+
     return result.reverse();
   } catch (error) {
     console.error(error);
